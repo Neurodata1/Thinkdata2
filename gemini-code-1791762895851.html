@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Think Data | Business & Strategies</title>
+    
+    <!-- Bootstrap 5 CSS Estable -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <style>
+        :root {
+            --brand-navy: #0b192c;
+            --brand-dark: #1e3e62;
+            --brand-blue: #0052cc;
+            --brand-cyan: #38bdf8;
+            --brand-bg: #f8fafc;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #334155;
+            background-color: #ffffff;
+            margin: 0;
+            padding-top: 80px;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            background-color: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0;
+            height: 80px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #475569 !important;
+            margin: 0 10px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--brand-blue) !important;
+        }
+
+        .btn-brand-primary {
+            background-color: var(--brand-navy);
+            color: #ffffff !important;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border-radius: 50px;
+            padding: 8px 22px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-brand-primary:hover {
+            background-color: var(--brand-blue);
+            box-shadow: 0 4px 12px rgba(0, 82, 204, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .btn-brand-blue {
+            background-color: var(--brand-blue);
+            color: #ffffff !important;
+            font-weight: 600;
+            border-radius: 12px;
+            padding: 12px 28px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-brand-blue:hover {
+            background-color: #0040a3;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 82, 204, 0.3);
+        }
+
+        .btn-brand-outline {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff !important;
+            font-weight: 600;
+            border-radius: 12px;
+            padding: 12px 28px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .btn-brand-outline:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero */
+        .hero-section {
+            position: relative;
+            background-color: var(--brand-navy);
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 60px 0;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(11,25,44,0.96) 0%, rgba(11,25,44,0.85) 60%, rgba(11,25,44,0.45) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        .gradient-title {
+            background: linear-gradient(135deg, #38bdf8 0%, #60a5fa 50%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-card {
+            background: rgba(11, 25, 44, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(16px);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            animation: pulseGlow 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+            100% { box-shadow: 0 20px 40px rgba(56, 189, 248, 0.18); }
+        }
+
+        .glass-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .glass-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(4px);
+        }
+
+        /* Secciones Generales */
+        .section-padding {
+            padding: 90px 0;
+        }
+
+        .badge-pill {
+            display: inline-block;
+            padding: 6px 16px;
+            background-color: #e0f2fe;
+            color: var(--brand-blue);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--brand-navy);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        /* Tarjetas Dinámicas e Interactivas */
+        .card-custom {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+            height: 100%;
+            position: relative;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 35px rgba(11, 25, 44, 0.09);
+            border-color: #93c5fd;
+        }
+
+        .card-custom::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            right: 20px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-blue), var(--brand-cyan));
+            border-radius: 3px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card-custom:hover::after {
+            opacity: 1;
+        }
+
+        .icon-box {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background-color: #eff6ff;
+            color: var(--brand-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .card-custom:hover .icon-box {
+            background-color: var(--brand-blue);
+            color: #ffffff;
+            transform: scale(1.08) rotate(2deg);
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-dark) 100%);
+            color: #ffffff;
+            border-radius: 18px;
+            padding: 24px;
+            margin-top: 24px;
+            border-left: 5px solid var(--brand-cyan);
+        }
+
+        /* Tarjetas de Fundadoras */
+        .founder-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .founder-card:hover {
+            border-color: var(--brand-cyan);
+            box-shadow: 0 10px 25px rgba(0, 82, 204, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .founder-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--brand-navy), var(--brand-blue));
+            color: var(--brand-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--brand-navy);
+            color: #94a3b8;
+            padding: 40px 0;
+            border-top: 1px solid #1e293b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Fijo -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#inicio">
+                <img src="LOGO.jpeg" alt="Logo Think Data" style="height: 55px; width: auto; object-fit: contain;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#nosotros">Quiénes Somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#soluciones">Soluciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tecnologia">Tecnología & IA</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#consultoria">Consultoría</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#formacion">Formación</a></li>
+                    <li class="nav-item ms-lg-2 mt-3 mt-lg-0">
+                        <a class="btn btn-brand-primary" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-screens-with-graphs-and-data-31913-large.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7 text-white" data-aos="fade-right" data-aos-duration="900">
+                    <div class="badge-pill mb-3" style="background: rgba(255,255,255,0.1); color: var(--brand-cyan); border: 1px solid rgba(255,255,255,0.2);">
+                        <i class="fa-solid fa-circle text-info me-1" style="font-size: 8px;"></i> Business & Strategies
+                    </div>
+                    <h1 class="display-4 fw-bold mb-4" style="line-height: 1.15;">
+                        Transformamos datos en <span class="gradient-title">decisiones estratégicas</span>
+                    </h1>
+                    <p class="lead text-light opacity-75 mb-5 text-justify fw-light" style="font-size: 1.05rem; line-height: 1.7;">
+                        Soluciones analíticas integrales para los sectores público y privado mediante ciencia de datos, inteligencia de negocios y analítica avanzada para anticipar y optimizar dinámicas organizacionales y de salud.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#contacto" class="btn btn-brand-blue d-flex align-items-center gap-2">
+                            Iniciar Proyecto <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#nosotros" class="btn btn-brand-outline">Conocer Más</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-5" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="glass-card text-white">
+                        <div class="d-flex justify-content-between align-items-center pb-3 border-bottom border-secondary mb-3">
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="bg-white p-1 rounded">
+                                    <img src="LOGO.jpeg" alt="Think Data" style="height: 24px; width: auto;">
+                                </div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold small">Think Data Analytics</h6>
+                                    <small style="color: var(--brand-cyan); font-size: 11px;">Monitoreo & Inteligencia</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-success rounded-pill" style="font-size: 9px;">En Vivo</span>
+                        </div>
+
+                        <div class="glass-item">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa-solid fa-chart-line text-info"></i>
+                                <div>
+                                    <div class="fw-bold" style="font-size: 12px;">Analítica Predictiva</div>
+                                    <div class="text-secondary" style="font-size: 10px;">Modelos y tendencias</div>
+                                </div>
+                            </div>
+                            <span class="badge bg-success bg-opacity-25 text-success" style="font-size: 10px;">Activo</span>
+                        </div>
+
+                        <div class="glass-item">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa-solid fa-shield-halved text-primary"></i>
+                                <div>
+                                    <div class="fw-bold" style="font-size: 12px;">Gobierno de Datos</div>
+                                    <div class="text-secondary" style="font-size: 10px;">Calidad & Trazabilidad</div>
+                                </div>
+                            </div>
+                            <span class="badge bg-info bg-opacity-25 text-info" style="font-size: 10px;">Óptimo</span>
+                        </div>
+
+                        <div class="glass-item mb-0">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fa-solid fa-brain text-warning"></i>
+                                <div>
+                                    <div class="fw-bold" style="font-size: 12px;">Inteligencia Artificial</div>
+                                    <div class="text-secondary" style="font-size: 10px;">NLP & Automatización</div>
+                                </div>
+                            </div>
+                            <span class="badge bg-warning bg-opacity-25 text-warning" style="font-size: 10px;">Listo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiénes Somos & Liderazgo -->
+    <section id="nosotros" class="section-padding" style="background-color: var(--brand-bg);">
+        <div class="container">
+            <div class="row align-items-start g-5">
+                <!-- Columna Izquierda: Filosofía & Fundadoras -->
+                <div class="col-lg-7" data-aos="fade-up" data-aos-duration="800">
+                    <div class="badge-pill">
+                        <i class="fa-solid fa-dna me-1"></i> Nuestro ADN & Propósito
+                    </div>
+                    <h2 class="section-title">¿Quiénes <span style="color: var(--brand-blue);">somos?</span></h2>
+                    
+                    <p class="text-secondary mb-3 text-justify" style="line-height: 1.7;">
+                        Somos una empresa especializada en analítica de datos, inteligencia de negocios y gerencia de proyectos. Integramos ciencia, tecnología y visión estratégica para transformar información en decisiones y desarrollar soluciones que impulsen el crecimiento de las organizaciones.
+                    </p>
+                    <p class="text-secondary mb-3 text-justify" style="line-height: 1.7;">
+                        A lo largo de nuestra trayectoria hemos participado y liderado proyectos de análisis, gestión y visualización de datos, así como procesos de formación y docencia, acompañando a profesionales y equipos en el desarrollo de capacidades para interpretar información y utilizarla de manera estratégica.
+                    </p>
+                    <p class="text-secondary mb-3 text-justify" style="line-height: 1.7;">
+                        Creemos que los datos por sí solos no cuentan toda la historia. Nuestro valor está en encontrar lo que hay detrás de ellos, identificar patrones, tendencias y oportunidades, y convertir información compleja en resultados claros, comprensibles y útiles para la toma de decisiones.
+                    </p>
+
+                    <div class="quote-box mb-4">
+                        <div class="d-flex align-items-start gap-3">
+                            <i class="fa-solid fa-quote-left fs-4" style="color: var(--brand-cyan);"></i>
+                            <p class="mb-0 fst-italic fw-medium" style="font-size: 0.95rem;">
+                                "No solo analizamos datos: los convertimos en conocimiento para impulsar decisiones más inteligentes."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Apartado de Fundadoras / Liderazgo -->
+                    <div class="mt-4 pt-2">
+                        <h5 class="fw-bold mb-3" style="color: var(--brand-navy); font-size: 1.15rem;">
+                            <i class="fa-solid fa-users-gear text-primary me-2"></i>Equipo Fundador & Dirección Científica
+                        </h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="founder-card h-100">
+                                    <div class="d-flex align-items-center gap-3 mb-2">
+                                        <div class="founder-avatar">
+                                            <i class="fa-solid fa-user-check"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold mb-0" style="color: var(--brand-navy);">Diana Parra</h6>
+                                            <small class="badge bg-primary bg-opacity-10 text-primary fw-semibold" style="font-size: 10px;">Co-Fundadora</small>
+                                        </div>
+                                    </div>
+                                    <p class="text-secondary small mb-0 mt-2" style="line-height: 1.5;">
+                                        Epidemióloga, Magíster en Estadística y Ciencia de Datos y Especialista en Gerencia de Proyectos.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="founder-card h-100">
+                                    <div class="d-flex align-items-center gap-3 mb-2">
+                                        <div class="founder-avatar">
+                                            <i class="fa-solid fa-user-gear"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold mb-0" style="color: var(--brand-navy);">Jennifer Méndez</h6>
+                                            <small class="badge bg-info bg-opacity-10 text-info fw-semibold" style="font-size: 10px;">Co-Fundadora</small>
+                                        </div>
+                                    </div>
+                                    <p class="text-secondary small mb-0 mt-2" style="line-height: 1.5;">
+                                        Epidemióloga, Magíster en Business Intelligence y Especialista en Inteligencia Artificial.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Módulos de Especialidad -->
+                <div class="col-lg-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="d-flex flex-column gap-3">
+                        <!-- Módulo 1 -->
+                        <div class="card-custom">
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="icon-box mb-0"><i class="fa-solid fa-shield-virus"></i></div>
+                                <div>
+                                    <h5 class="fw-bold mb-1" style="color: var(--brand-navy); font-size: 1.05rem;">Epidemiología & Salud Pública</h5>
+                                    <p class="text-secondary small mb-0 text-justify">Análisis de situación de salud y rigor metodológico aplicado a organizaciones públicas y privadas.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Módulo 2 -->
+                        <div class="card-custom">
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="icon-box mb-0"><i class="fa-solid fa-chart-pie"></i></div>
+                                <div>
+                                    <h5 class="fw-bold mb-1" style="color: var(--brand-navy); font-size: 1.05rem;">Analítica & Visualización</h5>
+                                    <p class="text-secondary small mb-0 text-justify">Transformación de información compleja en tableros interactivos y patrones claros.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Módulo 3: Gerencia de Proyectos (NUEVO) -->
+                        <div class="card-custom">
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="icon-box mb-0" style="background-color: #f0fdf4; color: #16a34a;"><i class="fa-solid fa-diagram-project"></i></div>
+                                <div>
+                                    <h5 class="fw-bold mb-1" style="color: var(--brand-navy); font-size: 1.05rem;">Gerencia de Proyectos</h5>
+                                    <p class="text-secondary small mb-0 text-justify">Planificación, dirección y control estratégico de iniciativas de base tecnológica bajo estándares rigurosos de entrega y medición de impacto.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Módulo 4: Soluciones B2B & SaaS (NUEVO) -->
+                        <div class="card-custom">
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="icon-box mb-0" style="background-color: #fdf2f8; color: #db2777;"><i class="fa-solid fa-cubes-stacked"></i></div>
+                                <div>
+                                    <h5 class="fw-bold mb-1" style="color: var(--brand-navy); font-size: 1.05rem;">Soluciones B2B & Productos SaaS</h5>
+                                    <p class="text-secondary small mb-0 text-justify">Diseño de ecosistemas en analítica de datos, inteligencia de negocios y gerencia de proyectos con visión de desarrollo de productos SaaS escalables.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Módulo 5 -->
+                        <div class="card-custom">
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="icon-box mb-0"><i class="fa-solid fa-user-graduate"></i></div>
+                                <div>
+                                    <h5 class="fw-bold mb-1" style="color: var(--brand-navy); font-size: 1.05rem;">Docencia & Transferencia</h5>
+                                    <p class="text-secondary small mb-0 text-justify">Acompañamiento y formación técnica de equipos para la toma de decisiones basada en evidencia.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soluciones -->
+    <section id="soluciones" class="section-padding bg-white">
+        <div class="container">
+            <div class="text-center max-w-3xl mx-auto mb-5" data-aos="fade-up">
+                <div class="badge-pill">Capacidades Centrales</div>
+                <h2 class="section-title">Soluciones Analíticas Integrales</h2>
+                <p class="text-secondary">Comprenda, anticipe y optimice las decisiones de su organización con rigor metodológico.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-custom">
+                        <div class="icon-box"><i class="fa-solid fa-chart-pie"></i></div>
+                        <h4 class="fw-bold mb-3" style="color: var(--brand-navy);">Ciencia de Datos & BI</h4>
+                        <p class="text-secondary small text-justify mb-0">Analítica descriptiva, predictiva y prescriptiva para identificar patrones y optimizar la toma de decisiones.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-custom">
+                        <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h4 class="fw-bold mb-3" style="color: var(--brand-navy);">Gobierno de Datos</h4>
+                        <p class="text-secondary small text-justify mb-0">Asesoría integral en calidad, integridad, trazabilidad, interoperabilidad y uso ético de la información.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-custom">
+                        <div class="icon-box"><i class="fa-solid fa-map-location-dot"></i></div>
+                        <h4 class="fw-bold mb-3" style="color: var(--brand-navy);">Análisis Geoespacial</h4>
+                        <p class="text-secondary small text-justify mb-0">Desarrollo de mapas interactivos y análisis territorial para el estudio de fenómenos sociales y de salud pública.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tecnología & IA -->
+    <section id="tecnologia" class="section-padding text-white" style="background-color: var(--brand-navy);">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <div class="badge-pill" style="background: rgba(255,255,255,0.1); color: var(--brand-cyan);">Desarrollo & Vanguardia</div>
+                <h2 class="section-title text-white">Tecnología, Automatización e IA</h2>
+                <p class="text-light opacity-75">Infraestructura tecnológica y algoritmos avanzados adaptados a sus procesos.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="p-4 rounded-4 h-100" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                        <i class="fa-solid fa-laptop-code fs-3 mb-3" style="color: var(--brand-cyan);"></i>
+                        <h5 class="fw-bold mb-2">Plataformas & Software</h5>
+                        <p class="text-light opacity-75 small mb-0 text-justify">Sistemas de información y herramientas de recolección y procesamiento.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="p-4 rounded-4 h-100" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                        <i class="fa-solid fa-table-columns fs-3 mb-3" style="color: var(--brand-cyan);"></i>
+                        <h5 class="fw-bold mb-2">Tableros Interactivos</h5>
+                        <p class="text-light opacity-75 small mb-0 text-justify">Dashboards en tiempo real para optimizar la gestión y el seguimiento de metas.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="p-4 rounded-4 h-100" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                        <i class="fa-solid fa-robot fs-3 mb-3" style="color: var(--brand-cyan);"></i>
+                        <h5 class="fw-bold mb-2">Machine Learning & NLP</h5>
+                        <p class="text-light opacity-75 small mb-0 text-justify">Modelos de minería de datos y procesamiento de lenguaje natural.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="p-4 rounded-4 h-100" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                        <i class="fa-solid fa-bullhorn fs-3 mb-3" style="color: var(--brand-cyan);"></i>
+                        <h5 class="fw-bold mb-2">Analítica Digital & Web</h5>
+                        <p class="text-light opacity-75 small mb-0 text-justify">Métricas de marketing digital, análisis de redes sociales y desarrollo web.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultoría y Formación -->
+    <section id="consultoria" class="section-padding" style="background-color: var(--brand-bg);">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <div class="badge-pill">Impacto & Conocimiento</div>
+                <h2 class="section-title">Consultoría Estratégica & Formación</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+                    <div class="card-custom border-top border-4" style="border-top-color: var(--brand-navy) !important;">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-box mb-0"><i class="fa-solid fa-chart-line"></i></div>
+                            <div>
+                                <small class="text-uppercase fw-bold" style="color: var(--brand-blue); font-size: 11px;">Acompañamiento</small>
+                                <h4 class="fw-bold mb-0" style="color: var(--brand-navy);">Consultoría Estratégica</h4>
+                            </div>
+                        </div>
+                        <p class="text-secondary small text-justify mb-4">
+                            Apoyo a entidades públicas y privadas en la formulación, monitoreo, evaluación y planeación de proyectos fundamentados en evidencia cuantitativa y rigor metodológico.
+                        </p>
+                        <ul class="list-unstyled d-flex flex-column gap-2 small text-secondary">
+                            <li><i class="fa-solid fa-check text-primary me-2"></i> Diseño de indicadores y tableros de control programáticos.</li>
+                            <li><i class="fa-solid fa-check text-primary me-2"></i> Evaluación y seguimiento de políticas públicas de salud.</li>
+                            <li><i class="fa-solid fa-check text-primary me-2"></i> Calidad, trazabilidad y gobierno de datos institucionales.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" id="formacion" data-aos="fade-left" data-aos-delay="200">
+                    <div class="card-custom border-top border-4" style="border-top-color: var(--brand-blue) !important;">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-box mb-0"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div>
+                                <small class="text-uppercase fw-bold" style="color: var(--brand-blue); font-size: 11px;">Academia</small>
+                                <h4 class="fw-bold mb-0" style="color: var(--brand-navy);">Formación e Investigación</h4>
+                            </div>
+                        </div>
+                        <p class="text-secondary small text-justify mb-4">
+                            Programas de capacitación técnica, certificaciones y divulgación científica aplicadas a la gestión del conocimiento y analítica avanzada.
+                        </p>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <div class="p-2 border rounded-3 bg-white d-flex align-items-center gap-2">
+                                    <i class="fa-brands fa-python text-primary fs-5"></i>
+                                    <div>
+                                        <div class="fw-bold small" style="color: var(--brand-navy); font-size: 11px;">Python & R</div>
+                                        <div class="text-muted" style="font-size: 9px;">Ciencia de datos</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-2 border rounded-3 bg-white d-flex align-items-center gap-2">
+                                    <i class="fa-solid fa-chart-column text-primary fs-5"></i>
+                                    <div>
+                                        <div class="fw-bold small" style="color: var(--brand-navy); font-size: 11px;">Power BI & SQL</div>
+                                        <div class="text-muted" style="font-size: 9px;">Dashboards & BD</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-2 border rounded-3 bg-white d-flex align-items-center gap-2">
+                                    <i class="fa-solid fa-virus-covid text-primary fs-5"></i>
+                                    <div>
+                                        <div class="fw-bold small" style="color: var(--brand-navy); font-size: 11px;">Epidemiología</div>
+                                        <div class="text-muted" style="font-size: 9px;">Salud pública</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-2 border rounded-3 bg-white d-flex align-items-center gap-2">
+                                    <i class="fa-solid fa-book-bookmark text-primary fs-5"></i>
+                                    <div>
+                                        <div class="fw-bold small" style="color: var(--brand-navy); font-size: 11px;">Investigación</div>
+                                        <div class="text-muted" style="font-size: 9px;">Publicaciones</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="section-padding bg-white">
+        <div class="container" data-aos="fade-up">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <div class="badge-pill">Comencemos</div>
+                    <h2 class="section-title">Potencie su Organización</h2>
+                    <p class="text-secondary mb-4">Contáctenos para diseñar una solución analítica a la medida de sus necesidades estratégicas.</p>
+                    
+                    <form name="contacto-thinkdata" method="POST" data-netlify="true" class="text-start">
+                        <input type="hidden" name="form-name" value="contacto-thinkdata" />
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-uppercase text-secondary">Nombre completo</label>
+                            <input type="text" name="nombre" required class="form-control py-2 rounded-3" placeholder="Ej. Juan Pérez">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-uppercase text-secondary">Correo Electrónico Corporativo</label>
+                            <input type="email" name="email" required class="form-control py-2 rounded-3" placeholder="correo@empresa.com">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label small fw-bold text-uppercase text-secondary">Mensaje o Requerimiento</label>
+                            <textarea rows="4" name="mensaje" required class="form-control py-2 rounded-3" placeholder="Describa brevemente su requerimiento..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-brand-blue w-100 py-3 fw-bold">Enviar Solicitud</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+            <div class="d-flex align-items-center gap-3">
+                <div class="bg-white p-1 rounded">
+                    <img src="LOGO.jpeg" alt="Think Data" style="height: 35px; width: auto; object-fit: contain;">
+                </div>
+                <div>
+                    <span class="text-white fw-bold d-block">THINK DATA</span>
+                    <small class="text-secondary" style="font-size: 11px;">Business & Strategies</small>
+                </div>
+            </div>
+            <small class="text-secondary">&copy; Think Data. Todos los derechos reservados.</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Library Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Inicializar animaciones de desplazamiento suave
+        AOS.init({
+            once: true,
+            offset: 80,
+            duration: 750,
+            easing: 'ease-out-cubic',
+        });
+    </script>
+</body>
+</html>
