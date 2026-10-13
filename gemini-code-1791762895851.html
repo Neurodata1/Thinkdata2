@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Think Data | Business & Strategies</title>
     
-    <!-- Bootstrap 5 CSS Estable -->
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,8 +13,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Animation Library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     
     <style>
         :root {
@@ -35,16 +33,13 @@
             background-color: #ffffff;
             margin: 0;
             padding-top: 80px;
-            overflow-x: hidden;
         }
 
         /* Navbar */
         .navbar-custom {
-            background-color: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.98);
             border-bottom: 1px solid #e2e8f0;
             height: 80px;
-            transition: all 0.3s ease;
         }
 
         .nav-link {
@@ -98,7 +93,7 @@
             font-weight: 600;
             border-radius: 12px;
             padding: 12px 28px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(8px);
             transition: all 0.3s ease;
         }
@@ -126,7 +121,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.3;
+            opacity: 0.25;
             z-index: 1;
         }
 
@@ -152,23 +147,17 @@
         }
 
         .glass-card {
-            background: rgba(11, 25, 44, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(11, 25, 44, 0.88);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(16px);
             border-radius: 24px;
             padding: 28px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            animation: pulseGlow 6s ease-in-out infinite alternate;
-        }
-
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-            100% { box-shadow: 0 20px 40px rgba(56, 189, 248, 0.18); }
         }
 
         .glass-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 12px;
             padding: 12px 16px;
             margin-bottom: 12px;
@@ -179,11 +168,11 @@
         }
 
         .glass-item:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.12);
             transform: translateX(4px);
         }
 
-        /* Secciones Generales */
+        /* Secciones */
         .section-padding {
             padding: 90px 0;
         }
@@ -209,38 +198,20 @@
             line-height: 1.2;
         }
 
-        /* Tarjetas Dinámicas e Interactivas */
+        /* Tarjetas */
         .card-custom {
             background: #ffffff;
             border: 1px solid #e2e8f0;
             border-radius: 20px;
             padding: 30px;
-            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.3s ease;
             height: 100%;
-            position: relative;
         }
 
         .card-custom:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 35px rgba(11, 25, 44, 0.09);
+            transform: translateY(-6px);
+            box-shadow: 0 18px 32px rgba(11, 25, 44, 0.08);
             border-color: #93c5fd;
-        }
-
-        .card-custom::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 20px;
-            right: 20px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--brand-blue), var(--brand-cyan));
-            border-radius: 3px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .card-custom:hover::after {
-            opacity: 1;
         }
 
         .icon-box {
@@ -260,7 +231,7 @@
         .card-custom:hover .icon-box {
             background-color: var(--brand-blue);
             color: #ffffff;
-            transform: scale(1.08) rotate(2deg);
+            transform: scale(1.08);
         }
 
         .quote-box {
@@ -272,7 +243,7 @@
             border-left: 5px solid var(--brand-cyan);
         }
 
-        /* Tarjetas de Fundadoras */
+        /* Fundadoras */
         .founder-card {
             background: #ffffff;
             border: 1px solid #e2e8f0;
@@ -284,7 +255,7 @@
         .founder-card:hover {
             border-color: var(--brand-cyan);
             box-shadow: 0 10px 25px rgba(0, 82, 204, 0.08);
-            transform: translateY(-4px);
+            transform: translateY(-3px);
         }
 
         .founder-avatar {
@@ -300,7 +271,6 @@
             flex-shrink: 0;
         }
 
-        /* Footer */
         footer {
             background-color: var(--brand-navy);
             color: #94a3b8;
@@ -345,7 +315,7 @@
 
         <div class="container hero-content">
             <div class="row align-items-center g-5">
-                <div class="col-lg-7 text-white" data-aos="fade-right" data-aos-duration="900">
+                <div class="col-lg-7 text-white">
                     <div class="badge-pill mb-3" style="background: rgba(255,255,255,0.1); color: var(--brand-cyan); border: 1px solid rgba(255,255,255,0.2);">
                         <i class="fa-solid fa-circle text-info me-1" style="font-size: 8px;"></i> Business & Strategies
                     </div>
@@ -363,7 +333,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-5" data-aos="fade-left" data-aos-duration="1000">
+                <div class="col-lg-5">
                     <div class="glass-card text-white">
                         <div class="d-flex justify-content-between align-items-center pb-3 border-bottom border-secondary mb-3">
                             <div class="d-flex align-items-center gap-2">
@@ -420,8 +390,8 @@
     <section id="nosotros" class="section-padding" style="background-color: var(--brand-bg);">
         <div class="container">
             <div class="row align-items-start g-5">
-                <!-- Columna Izquierda: Filosofía & Fundadoras -->
-                <div class="col-lg-7" data-aos="fade-up" data-aos-duration="800">
+                <!-- Columna Izquierda -->
+                <div class="col-lg-7">
                     <div class="badge-pill">
                         <i class="fa-solid fa-dna me-1"></i> Nuestro ADN & Propósito
                     </div>
@@ -446,7 +416,7 @@
                         </div>
                     </div>
 
-                    <!-- Apartado de Fundadoras / Liderazgo -->
+                    <!-- Fundadoras -->
                     <div class="mt-4 pt-2">
                         <h5 class="fw-bold mb-3" style="color: var(--brand-navy); font-size: 1.15rem;">
                             <i class="fa-solid fa-users-gear text-primary me-2"></i>Equipo Fundador & Dirección Científica
@@ -488,10 +458,9 @@
                     </div>
                 </div>
 
-                <!-- Columna Derecha: Módulos de Especialidad -->
-                <div class="col-lg-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                <!-- Columna Derecha: Módulos -->
+                <div class="col-lg-5">
                     <div class="d-flex flex-column gap-3">
-                        <!-- Módulo 1 -->
                         <div class="card-custom">
                             <div class="d-flex align-items-start gap-3">
                                 <div class="icon-box mb-0"><i class="fa-solid fa-shield-virus"></i></div>
@@ -502,7 +471,6 @@
                             </div>
                         </div>
 
-                        <!-- Módulo 2 -->
                         <div class="card-custom">
                             <div class="d-flex align-items-start gap-3">
                                 <div class="icon-box mb-0"><i class="fa-solid fa-chart-pie"></i></div>
@@ -513,7 +481,6 @@
                             </div>
                         </div>
 
-                        <!-- Módulo 3: Gerencia de Proyectos (NUEVO) -->
                         <div class="card-custom">
                             <div class="d-flex align-items-start gap-3">
                                 <div class="icon-box mb-0" style="background-color: #f0fdf4; color: #16a34a;"><i class="fa-solid fa-diagram-project"></i></div>
@@ -524,7 +491,6 @@
                             </div>
                         </div>
 
-                        <!-- Módulo 4: Soluciones B2B & SaaS (NUEVO) -->
                         <div class="card-custom">
                             <div class="d-flex align-items-start gap-3">
                                 <div class="icon-box mb-0" style="background-color: #fdf2f8; color: #db2777;"><i class="fa-solid fa-cubes-stacked"></i></div>
@@ -535,7 +501,6 @@
                             </div>
                         </div>
 
-                        <!-- Módulo 5 -->
                         <div class="card-custom">
                             <div class="d-flex align-items-start gap-3">
                                 <div class="icon-box mb-0"><i class="fa-solid fa-user-graduate"></i></div>
@@ -554,28 +519,28 @@
     <!-- Soluciones -->
     <section id="soluciones" class="section-padding bg-white">
         <div class="container">
-            <div class="text-center max-w-3xl mx-auto mb-5" data-aos="fade-up">
+            <div class="text-center max-w-3xl mx-auto mb-5">
                 <div class="badge-pill">Capacidades Centrales</div>
                 <h2 class="section-title">Soluciones Analíticas Integrales</h2>
                 <p class="text-secondary">Comprenda, anticipe y optimice las decisiones de su organización con rigor metodológico.</p>
             </div>
 
             <div class="row g-4">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-4">
                     <div class="card-custom">
                         <div class="icon-box"><i class="fa-solid fa-chart-pie"></i></div>
                         <h4 class="fw-bold mb-3" style="color: var(--brand-navy);">Ciencia de Datos & BI</h4>
                         <p class="text-secondary small text-justify mb-0">Analítica descriptiva, predictiva y prescriptiva para identificar patrones y optimizar la toma de decisiones.</p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-4">
                     <div class="card-custom">
                         <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
                         <h4 class="fw-bold mb-3" style="color: var(--brand-navy);">Gobierno de Datos</h4>
                         <p class="text-secondary small text-justify mb-0">Asesoría integral en calidad, integridad, trazabilidad, interoperabilidad y uso ético de la información.</p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-md-4">
                     <div class="card-custom">
                         <div class="icon-box"><i class="fa-solid fa-map-location-dot"></i></div>
                         <h4 class="fw-bold mb-3" style="color: var(--brand-navy);">Análisis Geoespacial</h4>
@@ -589,35 +554,35 @@
     <!-- Tecnología & IA -->
     <section id="tecnologia" class="section-padding text-white" style="background-color: var(--brand-navy);">
         <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
+            <div class="text-center mb-5">
                 <div class="badge-pill" style="background: rgba(255,255,255,0.1); color: var(--brand-cyan);">Desarrollo & Vanguardia</div>
                 <h2 class="section-title text-white">Tecnología, Automatización e IA</h2>
                 <p class="text-light opacity-75">Infraestructura tecnológica y algoritmos avanzados adaptados a sus procesos.</p>
             </div>
 
             <div class="row g-4">
-                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                <div class="col-md-6 col-lg-3">
                     <div class="p-4 rounded-4 h-100" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
                         <i class="fa-solid fa-laptop-code fs-3 mb-3" style="color: var(--brand-cyan);"></i>
                         <h5 class="fw-bold mb-2">Plataformas & Software</h5>
                         <p class="text-light opacity-75 small mb-0 text-justify">Sistemas de información y herramientas de recolección y procesamiento.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                <div class="col-md-6 col-lg-3">
                     <div class="p-4 rounded-4 h-100" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
                         <i class="fa-solid fa-table-columns fs-3 mb-3" style="color: var(--brand-cyan);"></i>
                         <h5 class="fw-bold mb-2">Tableros Interactivos</h5>
                         <p class="text-light opacity-75 small mb-0 text-justify">Dashboards en tiempo real para optimizar la gestión y el seguimiento de metas.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                <div class="col-md-6 col-lg-3">
                     <div class="p-4 rounded-4 h-100" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
                         <i class="fa-solid fa-robot fs-3 mb-3" style="color: var(--brand-cyan);"></i>
                         <h5 class="fw-bold mb-2">Machine Learning & NLP</h5>
                         <p class="text-light opacity-75 small mb-0 text-justify">Modelos de minería de datos y procesamiento de lenguaje natural.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
+                <div class="col-md-6 col-lg-3">
                     <div class="p-4 rounded-4 h-100" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
                         <i class="fa-solid fa-bullhorn fs-3 mb-3" style="color: var(--brand-cyan);"></i>
                         <h5 class="fw-bold mb-2">Analítica Digital & Web</h5>
@@ -631,13 +596,13 @@
     <!-- Consultoría y Formación -->
     <section id="consultoria" class="section-padding" style="background-color: var(--brand-bg);">
         <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
+            <div class="text-center mb-5">
                 <div class="badge-pill">Impacto & Conocimiento</div>
                 <h2 class="section-title">Consultoría Estratégica & Formación</h2>
             </div>
 
             <div class="row g-4">
-                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+                <div class="col-lg-6">
                     <div class="card-custom border-top border-4" style="border-top-color: var(--brand-navy) !important;">
                         <div class="d-flex align-items-center gap-3 mb-3">
                             <div class="icon-box mb-0"><i class="fa-solid fa-chart-line"></i></div>
@@ -657,7 +622,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6" id="formacion" data-aos="fade-left" data-aos-delay="200">
+                <div class="col-lg-6" id="formacion">
                     <div class="card-custom border-top border-4" style="border-top-color: var(--brand-blue) !important;">
                         <div class="d-flex align-items-center gap-3 mb-3">
                             <div class="icon-box mb-0"><i class="fa-solid fa-graduation-cap"></i></div>
@@ -715,7 +680,7 @@
 
     <!-- Contacto -->
     <section id="contacto" class="section-padding bg-white">
-        <div class="container" data-aos="fade-up">
+        <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
                     <div class="badge-pill">Comencemos</div>
@@ -761,16 +726,5 @@
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS Library Script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        // Inicializar animaciones de desplazamiento suave
-        AOS.init({
-            once: true,
-            offset: 80,
-            duration: 750,
-            easing: 'ease-out-cubic',
-        });
-    </script>
 </body>
 </html>
